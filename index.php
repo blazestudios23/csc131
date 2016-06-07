@@ -1,20 +1,27 @@
 <html>
-<header>
+<head>
+<link rel="stylesheet" type="text/css" href="styles.css">
 <?php
 include 'funcitons.php';
 ?>
 <script src=""></script>
-</header>
+</head>
 <body>
+<header>
 
+  <h1 class="Title"> </h1>
 
+</header>
 <article>
+
   <table>
+
 
   </table>
 </article>
-<footer>
-</footer>
 
+<footer>
+
+</footer>
 </body>
 </html>
