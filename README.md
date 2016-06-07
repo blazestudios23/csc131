@@ -1,1 +1,3 @@
-# csc131
+# CSC 131
+
+Student attenance project. 
