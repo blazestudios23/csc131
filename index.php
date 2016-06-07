@@ -1,16 +1,18 @@
 <html>
-
-
-<head>
-
-</head>
+<header>
+<?php
+include 'funcitons.php';
+?>
+</header>
 <body>
 
 
-<footer>
-<table>
+<article>
+  <table>
 
-</table>
+  </table>
+</article>
+<footer>
 </footer>
 
 </body>
