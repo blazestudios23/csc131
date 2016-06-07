@@ -4,7 +4,7 @@
 <?php
 include 'funcitons.php';
 ?>
-<script src=""></script>
+<script src="funcitons.js"></script>
 </head>
 <body>
 <header>
