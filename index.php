@@ -2,9 +2,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <?php
-include 'funcitons.php';
+include '/functions/functions.php';
 ?>
-<script src="funcitons.js"></script>
+<script src="/functions/functions.js"></script>
 </head>
 <body>
 <header>
