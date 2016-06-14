@@ -15,7 +15,7 @@ integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En
 integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <?php
-  include 'functions/functions.php';
+  //include 'functions/functions.php';
 ?>
 
 <script src="functions/functions.js"></script>

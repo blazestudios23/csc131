@@ -87,3 +87,10 @@
        var textContent = document.createTextNode(message + '\n');
        pre.appendChild(textContent);
      }
+
+
+     $(document).ready(function(){
+         $(".btn2").click(function(){
+             $("input.random_number").fadeIn();
+         });
+     });
