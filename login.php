@@ -28,7 +28,7 @@
         <!--<button class = "btn btn-lg btn-primary btn-block" type = "submit"
         name = "login">Login</button>-->
         <input name="Submit" type="submit" value="Login" class="btn btn-lg btn-primary btn-block">
-        <p class="log-out" >Click here to <a href = "logout.php" tite = "Logout">Log Out.</p>
+        
     </form>
   </div>
 </body>

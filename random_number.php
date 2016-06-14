@@ -8,8 +8,13 @@
 
 // Load an entire worksheet.
 $("#statistics").sheetrock({
-  url: mySpreadsheet
+  url: mySpreadsheet,
+  callback: (function(error, options, response)
+  
+
+  )
 });
+
 
 </script>
 
