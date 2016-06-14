@@ -1,3 +1,11 @@
+function insertRows() {
+    var table = document.getElementById("studentDetails");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = "NEW CELL1";
+    cell2.innerHTML = "NEW CELL2";
+}
 
 // Your Client ID can be retrieved from your project in the Google
      // Developer Console, https://console.developers.google.com
@@ -88,9 +96,8 @@
        pre.appendChild(textContent);
      }
 
-
      $(document).ready(function(){
          $(".btn2").click(function(){
-             $("input.random_number").fadeIn();
+             $(".random_number").fadeIn();
          });
      });

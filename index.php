@@ -30,20 +30,27 @@
   <?php include 'nav.php' ?>
   <header class="jumbotron">
     <div class="container">
-      <h1 class="Title">Sheet Name </h1>
+      <h1 class="Title" >Student Attendance Tracker </h1>
     </div>
   </header>
     <div class="container">
 
       <h3 class="Title">Generate Attendance Code</h3>
-      <form action="" method=""><!--class="sr-only"-->
-        <?php $random= rand(0, 9999); ?>
-        <input style="display:none;" type="text" class="random_number" value="<?php echo $random; ?>" name="random" />
-        <input class="btn2 btn btn-primary btn-lg btn-block" name="attend" type="submit" value="Generate" />
-      </form>
+      <div  style="display:none;" class="panel-group random_number">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <?php $random= rand(0, 9999); ?>
+              <h3 class="Title">Give the below number to students to have them sign into class. </h3>
+            </div>
+            <div class="panel panel-default">
+              <h1 style="font-size: 7.0rem;"> <?php echo $random; ?> </h1>
+            </div>
+          </div>
+      </div>
+      <button onclick="insertRows()" class="btn2 btn btn-primary btn-lg btn-block">Generate</button>
 
       <div class="table-responsive">
-        <table class="table" id="attendance-sheet">
+        <table class="table" id="studentDetails">
 
           <thead>
        <tr>
