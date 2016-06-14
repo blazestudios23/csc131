@@ -35,7 +35,7 @@
 
     <!--  <div class="table-responsive"> -->
 
-        <table class="table" id="#students">
+        <table class="table" id="students">
 
 
          </table>
@@ -47,11 +47,6 @@
          //$("#students").sheetrock({
          //   url: mySpreadsheet
          //});
-         $("#students").sheetrock({
-         url: "https://docs.google.com/spreadsheets/d/1qT1LyvoAcb0HTsi2rHBltBVpUBumAUzT__rhMvrz5Rk/edit#gid=0",
-         query: "select A,B,C,D,E,L where E = 'Both' order by L desc"
-         });
-
 
          </script>
 
