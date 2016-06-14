@@ -1,21 +1,5 @@
 <?php
   include 'functions/session_check.php';
-
-  if(isset($_POST['attend'])){
-  	// Fetching variables of the form which travels in URL
-  	$random= $_POST['random'];
-  	//$email = $_POST['email'];
-  	//$contact = $_POST['contact'];
-  	//$address = $_POST['address'];
-  	if($random !='')
-  	{
-  		//  To redirect form on a particular page
-  		header("Location:random_number.php");
-  	}
-  	else{
-  		?><span><?php echo "Please fill all fields.....!!!!!!!!!!!!";?></span> <?php
-  	}
-  }
 ?>
 <html>
 <head>
@@ -43,41 +27,36 @@
               <h3 class="Title">Give the below number to students to have them sign into class. </h3>
             </div>
             <div class="panel panel-default">
-              <h1 style="font-size: 7.0rem;"> <?php echo $random; ?> </h1>
+              <h1 style="font-size: 7.0rem; padding-left:2rem;"> <?php echo $random; ?> </h1>
             </div>
           </div>
       </div>
       <button onclick="insertRows()" class="btn2 btn btn-primary btn-lg btn-block">Generate</button>
 
-      <div class="table-responsive">
-        <table class="table" id="studentDetails">
+    <!--  <div class="table-responsive"> -->
 
-          <thead>
-       <tr>
-         <th>Firstname</th>
-         <th>Lastname</th>
-         <th>Email</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <td>John</td>
-         <td>Doe</td>
-         <td>john@example.com</td>
-       </tr>
-       <tr>
-         <td>Mary</td>
-         <td>Moe</td>
-         <td>mary@example.com</td>
-       </tr>
-       <tr>
-         <td>July</td>
-         <td>Dooley</td>
-         <td>july@example.com</td>
-       </tr>
-     </tbody>
+        <table class="table" id="#students">
+
+
          </table>
-      </div>
+
+         <script>// Define spreadsheet URL.
+         //var mySpreadsheet = "https://docs.google.com/spreadsheets/d/1c-I-QYN0DLt2BMVs2sbLqzT4zeO5x9jUwhJFW3vsirQ/edit";
+
+         // Load an entire worksheet.
+         //$("#students").sheetrock({
+         //   url: mySpreadsheet
+         //});
+         $("#students").sheetrock({
+         url: "https://docs.google.com/spreadsheets/d/1qT1LyvoAcb0HTsi2rHBltBVpUBumAUzT__rhMvrz5Rk/edit#gid=0",
+         query: "select A,B,C,D,E,L where E = 'Both' order by L desc"
+         });
+
+
+         </script>
+
+
+    <!--  </div> -->
 
     <p class="log-out" >Click here to <a href = "logout.php" tite = "Logout">Log Out.</p>
   </div>

@@ -1,5 +1,6 @@
+/*
 function insertRows() {
-    var table = document.getElementById("studentDetails");
+    var table = document.getElementById("students");
     var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
@@ -13,9 +14,8 @@ function insertRows() {
 
      var SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
 
-     /**
-      * Check if current user has authorized this application.
-      */
+      // Check if current user has authorized this application.
+
      function checkAuth() {
        gapi.auth.authorize(
          {
@@ -25,11 +25,8 @@ function insertRows() {
          }, handleAuthResult);
      }
 
-     /**
-      * Handle response from authorization server.
-      *
-      * @param {Object} authResult Authorization result.
-      */
+      // Handle response from authorization server.
+      // @param {Object} authResult Authorization result.
      function handleAuthResult(authResult) {
        var authorizeDiv = document.getElementById('authorize-div');
        if (authResult && !authResult.error) {
@@ -43,11 +40,9 @@ function insertRows() {
        }
      }
 
-     /**
-      * Initiate auth flow in response to user clicking authorize button.
-      *
-      * @param {Event} event Button click event.
-      */
+      // Initiate auth flow in response to user clicking authorize button.
+      // @param {Event} event Button click event.
+
      function handleAuthClick(event) {
        gapi.auth.authorize(
          {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
@@ -55,16 +50,12 @@ function insertRows() {
        return false;
      }
 
-     /**
-      * Load Drive API client library.
-      */
+      // Load Drive API client library.
      function loadDriveApi() {
        gapi.client.load('drive', 'v2', listFiles);
      }
 
-     /**
-      * Print files.
-      */
+      // Print files.
      function listFiles() {
        var request = gapi.client.drive.files.list({
            'maxResults': 10
@@ -84,20 +75,21 @@ function insertRows() {
          });
      }
 
-     /**
-      * Append a pre element to the body containing the given message
-      * as its text node.
-      *
-      * @param {string} message Text to be placed in pre element.
-      */
+      // Append a pre element to the body containing the given message
+      // as its text node.
+
+      //@param {string} message Text to be placed in pre element.
+
      function appendPre(message) {
        var pre = document.getElementById('output');
        var textContent = document.createTextNode(message + '\n');
        pre.appendChild(textContent);
      }
-
+*/
      $(document).ready(function(){
          $(".btn2").click(function(){
              $(".random_number").fadeIn();
          });
      });
+
+    

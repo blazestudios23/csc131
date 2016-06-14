@@ -1,57 +1,22 @@
-<?php
-  include 'functions/session_check.php';
-  if(isset($_POST['attend'])){
-    // Fetching variables of the form which travels in URL
-    $random= $_POST['random'];
-    //$email = $_POST['email'];
-    //$contact = $_POST['contact'];
-    //$address = $_POST['address'];
-    if($random !='')
-    {
-      //  To redirect form on a particular page
-      header("Location:random_number.php");
-    }
-    else{
-      ?><span><?php echo "Please fill all fields.....!!!!!!!!!!!!";?></span> <?php
-    }
-  }
-
-  ?>
 <html>
 <head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
 
-  <?php
-  include 'head.php';
-  ?>
+  <script>
+  var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1qT1LyvoAcb0HTsi2rHBltBVpUBumAUzT__rhMvrz5Rk/edit#gid=0';
+
+// Load an entire worksheet.
+$("#statistics").sheetrock({
+  url: mySpreadsheet
+});
+
+</script>
 
   <title>Student Attencance</title>
 </head>
 <body>
-  <?php include 'nav.php' ?>
-  <header class="jumbotron">
-    <div class="container">
-      <div class="panel-group">
-          <div class="panel panel-info">
-            <div class="panel-body">
-              <h2 class="Title">Attendance Code</h2>
-              <h3 class="Title">Give the below number to students to have them sign into class. </h3>
-            </div>
-            <div class="panel panel-default">
-              <h1><?php echo $random; ?> </h1>
-            </div>
-          </div>
-      </div>
-    </div>
+  <table id="statistics" class="table table-condensed table-striped"></table>
 
-  </header>
-
-    <div class="container">
-
-    <p class="log-out" >Click here to <a href = "logout.php" tite = "Logout">Log Out.</p>
-  </div>
-
-  <footer>
-
-  </footer>
 </body>
 </html>
