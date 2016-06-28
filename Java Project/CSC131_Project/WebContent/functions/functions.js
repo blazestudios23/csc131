@@ -14,3 +14,10 @@ $(document).ready(function(){
 
 
 });
+
+
+window.setInterval(function() {
+  $("#students").sheetrock({
+  url: mySpreadsheet,
+  });
+}, 5000);
