@@ -1,0 +1,4 @@
+SheetQuickStart.java
+
+in = new FileReader("F:\\Software\\Workspaces\\codes_start\\CSC131_Project\\src\\counter.txt");
+out = new FileWriter("F:\\Software\\Workspaces\\codes_start\\CSC131_Project\\src\\counter\\counter.txt");
