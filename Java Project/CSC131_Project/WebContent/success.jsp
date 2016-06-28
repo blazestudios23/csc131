@@ -44,15 +44,35 @@ function myFunction() {
 </script>
 <body>
 
-<button onclick="myFunction()">Create Random Number</button>
+<jsp:include page="nav.jsp" />
+<header class="jumbotron">
+  <div class="container">
+    <h1 class="Title" >Student Attendance Tracker </h1>
+    <h2 class="Title">
+      welcome to professor login ....
+      <bean:write name="LoginForm" property="userName"></bean:write>
+    </h2>
+  </div>
+</header>
 
-<p id="demo"></p>
+<div class="container">
 
-	<h1>
-		welcome to professor login ....
-		<bean:write name="LoginForm" property="userName"></bean:write>
-	</h1>
-<table>
+<h3 class="Title">Generate Attendance Code</h3>
+
+<div  style="display:none;" class="panel-group random_number">
+    <div class="panel panel-info">
+      <div class="panel-body">
+        <h3 class="Title">Give the below number to students to have them sign into class. </h3>
+      </div>
+      <div class="panel panel-default">
+        <h1 style="font-size: 7.0rem; padding-left:2rem;" id="demo" > </h1>
+      </div>
+  </div>
+</div>
+
+<button onclick="myFunction()" class="btn2 btn btn-primary btn-lg btn-block" >Generate</button>
+
+<table class="table" >
   <logic:iterate name="listUsers" id="listUserId">
 	<tr>
     <th><bean:write name="listUserId" property="username" /></th>
@@ -67,5 +87,12 @@ function myFunction() {
   </tr>
 </logic:iterate>
 </table>
+<p> jquery Test area, need editale link to the spreadsheet you are using</p>
+<table class="table" id="students">
+
+
+ </table>
+
+</div>
 </body>
 </html>

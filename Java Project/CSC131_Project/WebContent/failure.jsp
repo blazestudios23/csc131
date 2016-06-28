@@ -9,11 +9,13 @@
     <head>
       <jsp:include page="head.jsp" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Failure</title>
     </head>
     <body>
+      <div class = "container">
         <div style="color:red">
-            <h1>Invalid user name  <bean:write name="LoginForm" property="userName"></bean:write></h1>
+            <h2>Invalid user name  <bean:write name="LoginForm" property="userName"></bean:write></h2>
         </div>
+      </div>
     </body>
 </html>

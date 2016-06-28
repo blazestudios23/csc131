@@ -11,10 +11,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-
-
-
-<h1> Attendance is mark for student id :  <bean:write name="StudentForm" property="userName"></bean:write></h1>
-
+<div class = "container">
+    <h2> Attendance is mark for student id :  <bean:write name="StudentForm" property="userName"></bean:write></h2>
+</div>
  </body>
 </html>

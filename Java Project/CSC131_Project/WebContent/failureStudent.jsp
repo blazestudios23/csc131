@@ -11,8 +11,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+      <div class = "container">
         <div style="color:red">
-            <h1>Invalid student id or random number <bean:write name="LoginForm" property="userName"></bean:write></h1>
+            <h2>Invalid student id or random number <bean:write name="LoginForm" property="userName"></bean:write></h2>
         </div>
+      </div>
     </body>
 </html>
