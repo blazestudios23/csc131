@@ -18,8 +18,11 @@
         </div>
         <html:form action="/Login" styleClass="form-signin">
           <h2 class="form-signin-heading">Please sign in</h2>
-            User Name : <html:text name="LoginForm" property="userName"   styleClass="form-control" /> <br>
-            Password  : <html:password name="LoginForm" property="password" styleClass = "form-control" /> <br>
+          <html:labelName for="Username" class="sr-only">
+            <label for="Username" class="sr-only">username</label>
+            <html:text name="LoginForm" property="userName"   styleClass="form-control" />
+            <label for="inputPassword" class="sr-only">Password</label>
+            <html:password name="LoginForm" property="password" styleClass = "form-control" />
             <html:submit value="Login"  styleClass="btn btn-lg btn-primary btn-block"/>
         </html:form>
       </div>
