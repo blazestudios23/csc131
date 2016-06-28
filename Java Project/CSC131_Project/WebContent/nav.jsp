@@ -4,8 +4,8 @@
       <a class="navbar-brand" href="#">Sac State Attendance System</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Home</a></li>
-      <li><a href="logout.php">Log Out</a></li>
+      <li class="active"><a href="success.jsp">Home</a></li>
+      <li><a href="logout.jsp">Log Out</a></li>
 
     </ul>
   </div>

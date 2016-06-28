@@ -17,8 +17,7 @@
             <html:errors />
         </div>
         <html:form action="/Login" styleClass="form-signin">
-          <h2 class="form-signin-heading">Please sign in</h2>
-          <html:labelName for="Username" class="sr-only">
+          <h2 class="form-signin-heading">Please Sign In</h2>
             <label for="Username" class="sr-only">Username</label>
             <html:text name="LoginForm" property="userName" value="Username" styleClass="form-control" />
             <label for="inputPassword" class="sr-only">Password</label>

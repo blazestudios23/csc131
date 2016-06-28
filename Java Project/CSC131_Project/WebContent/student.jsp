@@ -12,13 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
+      <div class = "container">
         <div style="color:red">
             <html:errors />
         </div>
-        <html:form action="/Student" >
-            Student ID : <html:text name="StudentForm" property="userName" /> <br>
-            Random Number  : <html:password name="StudentForm" property="password" /> <br>
-            <html:submit value="submit" />
+
+        <html:form action="/Student"  styleClass="form-signin" >
+          <h2 class="form-signin-heading">Please Confirm Attendance</h2>
+          <label for="Username" class="sr-only">Student ID</label>
+             <html:text name="StudentForm" property="userName" value="Student ID" styleClass="form-control" />
+             <label for="inputPassword" class="sr-only">Authorization Code</label>
+             <html:password name="StudentForm" value="Authorization Code" property="password" styleClass="form-control" /> <br>
+            <html:submit value="submit" styleClass="btn btn-lg btn-primary btn-block" />
         </html:form>
+      </div>
     </body>
 </html>
