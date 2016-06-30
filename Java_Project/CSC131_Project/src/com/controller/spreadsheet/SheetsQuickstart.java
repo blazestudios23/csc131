@@ -1,4 +1,6 @@
 package com.controller.spreadsheet;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -229,26 +231,27 @@ public class SheetsQuickstart {
 			List<List<Object>> valuesFetch = spreadsheet.fetchForUpdateData();
 			HashMap<Integer,Integer> hash=new HashMap<Integer,Integer>();
 
-			/*File file = new File("counter.txt");
-			FileInputStream fis = null;
-			OutputStream os =null;*/
-
+			BufferedReader in = null;
+		     BufferedWriter out = null;
+            System.out.println("Before try block");
 			try {
-
-
-
-				/*fis = new FileInputStream(file);
-				os= new FileOutputStream(file);
+				String pathAppend="F:\\CSU-Sacramento\\Bhushan\\CSC131\\Github_clone\\Andrew_Work\\csc131\\Java_Project\\CSC131_Project\\src\\com\\controller\\spreadsheet\\"+"counter.txt";
+				//String pathAppend="C:\\"+"counter.txt";
+		    	System.out.println("Path is : "+pathAppend);
+		        in =  new BufferedReader(new FileReader(pathAppend));
+		       //
+				System.out.println("Before call in objects.....");
+				int content =0;
+				String line=in.readLine();
+				System.out.println("value reading  file:::::"+line);
+				content=Integer.parseInt(line);
 				
-				int content = fis.read();
 				System.out.println("File content" + content);
-				
-				os.write(content);*/
 
 				HashMap hashDate=new HashMap();
 				HashMap hashEmailIdMapping=new HashMap();
 
-				Integer currentPtr=6;
+				Integer currentPtr=content;
 				if(hashDate.containsKey(time)){
 					currentPtr=Integer.valueOf(hashDate.get(time).toString());
 					// key 07/26/2016 6
@@ -257,7 +260,9 @@ public class SheetsQuickstart {
 					// key 07/28/2016 7
 					currentPtr=currentPtr+1;
 					hashDate.put(time, currentPtr);
-					//	out.write(currentPtr);
+					out = new BufferedWriter(new FileWriter(pathAppend));
+					out.write(currentPtr.toString());
+					out.close();
 				}
 				String emailId=null;
 				int i=1;
@@ -316,9 +321,10 @@ public class SheetsQuickstart {
 				String emailD=hashEmailIdMapping.get(stdid).toString();
 				System.out.println("Email ID:::"+emailD);
 				new EmailData().sentEmail(emailD,time);
+				
 			}finally {
-				/*fis.close();
-				os.close();*/
+				in.close();
+				
 			} 
 
 			//file creation and deletion code	
