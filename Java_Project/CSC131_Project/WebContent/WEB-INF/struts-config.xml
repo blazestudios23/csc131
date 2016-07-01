@@ -10,6 +10,7 @@
         <form-bean name="LoginForm" type="com.forms.LoginForm"/>
         <form-bean name="StudentForm" type="com.forms.StudentForm"/>
         <form-bean name="KeygenerForm" type="com.forms.KeygeneratorForm"/>
+        <form-bean name="EmailForm" type="com.forms.Email"/>
     </form-beans>
     
     <global-exceptions>
@@ -30,6 +31,12 @@
             <forward name="success" path="/successStudent.jsp" />
             <forward name="failure" path="/failureStudent.jsp" />
         </action>
+        
+         <action input="/email.jsp" name="EmailForm" path="/Email" scope="session" type="com.actions.EmailAction">
+            <forward name="success" path="/emailUpdated.jsp" />
+            <forward name="failure" path="/emailNotUpdate.jsp" />
+        </action>
+        
         
          <action input="/success.jsp" name="KeygenerForm" path="/Keygenerator" scope="session" type="com.actions.KeygeneratorAction">
         </action>

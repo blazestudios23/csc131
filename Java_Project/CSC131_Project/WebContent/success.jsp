@@ -47,10 +47,9 @@ function myFunction() {
 <jsp:include page="nav.jsp" />
 <header class="jumbotron">
   <div class="container">
-    <h1 class="Title" >Student Attendance Tracker </h1>
+    <h1 class="Title" ><u>Student Attendance Tracker</u> </h1>
     <h2 class="Title">
-      welcome to professor login ....
-      <bean:write name="LoginForm" property="userName"></bean:write>
+      welcome Professor -  <bean:write name="LoginForm" property="userName"></bean:write>
     </h2>
   </div>
 </header>

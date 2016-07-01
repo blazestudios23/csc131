@@ -60,7 +60,7 @@ public class SheetsQuickstart {
 
 	/** Global instance of the HTTP transport. */
 	private static HttpTransport HTTP_TRANSPORT;
-
+	static HashMap hashDate=new HashMap(); //check the date 
 	/** Global instance of the scopes required by this quickstart.
 	 *
 	 * If modifying these scopes, delete your previously saved credentials
@@ -129,86 +129,6 @@ public class SheetsQuickstart {
 				.build();
 	}
 
-	/*public static void main(String[] args) throws IOException {
-        // Build a new authorized API client service.
-        Sheets service = getSheetsService();
-
-        // Prints the names and majors of students in a sample spreadsheet:
-        // https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
-        String spreadsheetId = "1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0";
-
-        List<Request> requests = new ArrayList<>();
-
-        HashMap datePointer=new HashMap();
-
-       // Change the name of sheet ID '0' (the default first sheet on every
-       // spreadsheet)
-       requests.add(new Request()
-             .setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
-                     .setProperties(new SheetProperties()
-                             .setSheetId(1804025843)
-                             .setTitle("Student Attendance"))
-                     .setFields("title")));
-
-       SheetsQuickstart_g spreadsheet=new SheetsQuickstart_g();
-       List<List<Object>> valuesFetch = spreadsheet.fetchData();
-
-       int i=1;
-       if (valuesFetch == null || valuesFetch.size() == 0) {
-			System.out.println("No data found.");
-		} else {
-			System.out.println("Name, Student Id");
-			for (List row : valuesFetch) {
-				// Print columns A and E, which correspond to indices 0 and 4.
-				hash.put(row.get(3).toString(),i);
-				i++;
-				//System.out.printf("%s, %s\n", row.get(0), row.get(3));
-			}
-		}
-
-       SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
-       Date date = new Date();
-       String time = sdf.format(date);
-
-       List<CellData> values = new ArrayList<>();
-       values.add(new CellData()
-               .setUserEnteredValue(new ExtendedValue()
-                       .setStringValue("Yes")));
-
-       List<CellData> values1 = new ArrayList<>();
-       values1.add(new CellData()
-               .setUserEnteredValue(new ExtendedValue()
-
-                       .setStringValue(time)));
-
-
-       requests.add(new Request()
-               .setUpdateCells(new UpdateCellsRequest()
-                       .setStart(new GridCoordinate()
-                               .setSheetId(1804025843)
-                               .setRowIndex(0)
-                               .setColumnIndex(6))
-                       .setRows(Arrays.asList(
-                               new RowData().setValues(values1)))
-                       .setFields("userEnteredValue,userEnteredFormat.backgroundColor")));
-
-       requests.add(new Request()
-               .setUpdateCells(new UpdateCellsRequest()
-                       .setStart(new GridCoordinate()
-                               .setSheetId(1804025843)
-                               .setRowIndex(1)
-                               .setColumnIndex(6))
-                       .setRows(Arrays.asList(
-                               new RowData().setValues(values)))
-                       .setFields("userEnteredValue,userEnteredFormat.backgroundColor")));
-
-
-        BatchUpdateSpreadsheetRequest batchUpdateRequest = new BatchUpdateSpreadsheetRequest()
-    	        .setRequests(requests);
-    	service.spreadsheets().batchUpdate(spreadsheetId, batchUpdateRequest)
-    	        .execute();
-
-    }*/
 
 	public void update(int stdid,int randNumber){
 		try{
@@ -232,23 +152,23 @@ public class SheetsQuickstart {
 			HashMap<Integer,Integer> hash=new HashMap<Integer,Integer>();
 
 			BufferedReader in = null;
-		     BufferedWriter out = null;
-            System.out.println("Before try block");
+			BufferedWriter out = null;
+			System.out.println("Before try block");
 			try {
 				String pathAppend="F:\\CSU-Sacramento\\Bhushan\\CSC131\\Github_clone\\Andrew_Work\\csc131\\Java_Project\\CSC131_Project\\src\\com\\controller\\spreadsheet\\"+"counter.txt";
 				//String pathAppend="C:\\"+"counter.txt";
-		    	System.out.println("Path is : "+pathAppend);
-		        in =  new BufferedReader(new FileReader(pathAppend));
-		       //
+				System.out.println("Path is : "+pathAppend);
+				in =  new BufferedReader(new FileReader(pathAppend));
+				//
 				System.out.println("Before call in objects.....");
 				int content =0;
 				String line=in.readLine();
 				System.out.println("value reading  file:::::"+line);
 				content=Integer.parseInt(line);
-				
+
 				System.out.println("File content" + content);
 
-				HashMap hashDate=new HashMap();
+
 				HashMap hashEmailIdMapping=new HashMap();
 
 				Integer currentPtr=content;
@@ -321,10 +241,10 @@ public class SheetsQuickstart {
 				String emailD=hashEmailIdMapping.get(stdid).toString();
 				System.out.println("Email ID:::"+emailD);
 				new EmailData().sentEmail(emailD,time);
-				
+
 			}finally {
 				in.close();
-				
+
 			} 
 
 			//file creation and deletion code	
@@ -335,6 +255,80 @@ public class SheetsQuickstart {
 
 
 	}
+
+
+
+
+	public boolean updateEmail(int stdid,String emailID){
+		try{
+			System.out.println("I am in update email method");
+			Sheets service = getSheetsService();
+			String spreadsheetId = "1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0";
+			List<Request> requests = new ArrayList<>();
+			requests.add(new Request()
+					.setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
+							.setProperties(new SheetProperties()
+									.setSheetId(1804025843)
+									.setTitle("Student Attendance"))
+							.setFields("title")));
+			SheetsQuickstart_g spreadsheet=new SheetsQuickstart_g();
+			List<List<Object>> valuesFetch = spreadsheet.fetchForUpdateData();
+			HashMap<Integer,Integer> hash=new HashMap<Integer,Integer>();
+
+			System.out.println("Before try block");
+			try {
+
+				int i=1;
+				if (valuesFetch == null || valuesFetch.size() == 0) {
+					System.out.println("No data found.");
+				} else {
+					for (List row : valuesFetch) {
+						System.out.println("Data to find a string ::: "+row.get(3).toString());
+						hash.put(Integer.valueOf(row.get(3).toString()),i);
+
+						i++;
+					}
+				}
+
+				List<CellData> values = new ArrayList<>();
+				values.add(new CellData()
+						.setUserEnteredValue(new ExtendedValue()
+								.setStringValue(emailID)));
+
+
+
+
+				requests.add(new Request()
+						.setUpdateCells(new UpdateCellsRequest()
+								.setStart(new GridCoordinate()
+										.setSheetId(1804025843)
+										.setRowIndex(hash.get(stdid).intValue())
+										.setColumnIndex(6))
+								.setRows(Arrays.asList(
+										new RowData().setValues(values)))
+								.setFields("userEnteredValue,userEnteredFormat.backgroundColor")));
+
+
+				BatchUpdateSpreadsheetRequest batchUpdateRequest = new BatchUpdateSpreadsheetRequest()
+						.setRequests(requests);
+				service.spreadsheets().batchUpdate(spreadsheetId, batchUpdateRequest)
+				.execute();
+
+
+				return true;
+			}finally {
+				
+			} 
+
+
+		}catch(Exception e){
+			System.out.println(e);
+			return false;
+		}
+
+
+	}
+
 
 
 
