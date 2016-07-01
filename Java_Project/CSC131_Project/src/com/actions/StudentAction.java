@@ -17,6 +17,7 @@ import com.controller.spreadsheet.SheetsQuickstart;
 import com.controller.spreadsheet.SheetsQuickstart_g;
 import com.forms.LoginForm;
 import com.forms.StudentForm;
+import com.networksecurity.*;
 
 import org.apache.struts.action.ActionForward;
 
@@ -29,6 +30,7 @@ public class StudentAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private final static String SUCCESS = "success";
     private final static String FAILURE = "failure";
+    private final static String HACKING = "hacking";
     /**
      * This is the action called from the Struts framework.
      * @param mapping The ActionMapping used to select this instance.
@@ -42,6 +44,7 @@ public class StudentAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
     	
+    	if(new Localnetwork().getLocalIp()){
     	StudentForm studentForm = (StudentForm) form;
         //if (studentForm.getUserName().equals(studentForm.getPassword())) {
             SheetsQuickstart sheet=new SheetsQuickstart();
@@ -55,6 +58,9 @@ public class StudentAction extends org.apache.struts.action.Action {
               System.out.println("Wait for professor to generate a key or you have enter the wrong key");	
               return mapping.findForward(FAILURE);
             }
+    	}else{
+    		return mapping.findForward(HACKING);
+    	}
             
         /*} else {
             return mapping.findForward(FAILURE);

@@ -13,7 +13,7 @@
     <body>
       <div class = "container">
         <div style="color:red">
-            <h2>Invalid student id or random number <bean:write name="StudentForm" property="userName"></bean:write></h2>
+            <h2>Trying to mark the attendance outside the class for student id:<bean:write name="EmailForm" property="stdid"></bean:write></h2>
         </div>
       </div>
     </body>

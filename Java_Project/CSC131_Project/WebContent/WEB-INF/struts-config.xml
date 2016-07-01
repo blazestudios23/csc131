@@ -30,6 +30,7 @@
         <action input="/student.jsp" name="StudentForm" path="/Student" scope="session" type="com.actions.StudentAction">
             <forward name="success" path="/successStudent.jsp" />
             <forward name="failure" path="/failureStudent.jsp" />
+             <forward name="hacking" path="/hackerStudent.jsp" />
         </action>
         
          <action input="/email.jsp" name="EmailForm" path="/Email" scope="session" type="com.actions.EmailAction">
