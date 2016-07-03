@@ -44,7 +44,7 @@ public class StudentAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
     	
-    	if(new Localnetwork().getLocalIp()){
+    	if(PSOutput.printISP()){
     	StudentForm studentForm = (StudentForm) form;
         //if (studentForm.getUserName().equals(studentForm.getPassword())) {
             SheetsQuickstart sheet=new SheetsQuickstart();
