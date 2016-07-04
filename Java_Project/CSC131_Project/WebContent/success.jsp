@@ -24,6 +24,26 @@ table, td, th {
 
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<%--Sheetrock use --%> 
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+  <!-- Optional theme -->
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+   >
+
+  <link rel="stylesheet" type="text/css" href="style/styles.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.0.1/dist/sheetrock.min.js"></script>
+
+  
+
+<%-- Sheetrock use --%>
 <script type="text/javascript">
 function myFunction() {
     var randm= Math.floor(Math.random()*90000) + 10000;
@@ -70,7 +90,7 @@ function myFunction() {
 </div>
 
 <button onclick="myFunction()" class="btn2 btn btn-primary btn-lg btn-block" >Generate</button>
-
+<%--  
 <table class="table" >
   <logic:iterate name="listUsers" id="listUserId">
 	<tr>
@@ -86,12 +106,13 @@ function myFunction() {
   </tr>
 </logic:iterate>
 </table>
-<p></p>
-<table class="table" id="students">
+--%>
+<%-- <p></p> 
+  <button onclick="location.href = 'reports.html';" class="btn2 btn btn-primary btn-lg btn-block" >Report</button> --%>
+<%--jsp:include page="reports.jsp" />--%>
 
-
- </table>
-
+<table class="table" id="students">  </table>
+  
 </div>
 </body>
 </html>
