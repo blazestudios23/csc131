@@ -240,7 +240,7 @@ public class SheetsQuickstart {
 
 				String emailD=hashEmailIdMapping.get(stdid).toString();
 				System.out.println("Email ID:::"+emailD);
-				new EmailData().sentEmail(emailD,time);
+				new EmailData().sentEmail(emailD,time,"Attendance Mark For Today Date -","Attendance Mark For Today Date -");
 
 			}finally {
 				in.close();

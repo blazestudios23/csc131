@@ -86,7 +86,7 @@ function myFunction() {
   </tr>
 </logic:iterate>
 </table>
-<p> jquery Test area, need editale link to the spreadsheet you are using</p>
+<p></p>
 <table class="table" id="students">
 
 

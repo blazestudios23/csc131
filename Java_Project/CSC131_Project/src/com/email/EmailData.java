@@ -25,10 +25,12 @@ final class MailClient
 		}
 	}
 
-	public void mail(String toEmailId, String date)
+	public void mail(String toEmailId, String date,String messagepara,String subjectpara)
 	{
 		try
 		{
+			//"Attendance Mark For Today Date -"
+			//"Attendance Mark For Today Date -"
 			InputStream inputStream = this.getClass().getClassLoader()
 					.getResourceAsStream("ApplicationResource.properties");
 
@@ -39,8 +41,8 @@ final class MailClient
 
 			String from = "snebhushan@gmail.com";
 			String to = toEmailId;
-			String subject = "Attendance Mark For Today Date -" + date;
-			String message = "Attendance Mark For Today Date -" + date;
+			String subject = subjectpara + date;
+			String message = messagepara+ date;
 			String login = "snebhushan@gmail.com";
 			String password = propValue;
 
@@ -78,8 +80,8 @@ final class MailClient
 
 public class EmailData
 {
-	public void sentEmail(String emailID,String Date){
-		new MailClient().mail(emailID,Date);
+	public void sentEmail(String emailID,String Date,String messagepara,String subjectpara){
+		new MailClient().mail(emailID,Date,messagepara,subjectpara);
 	}
 
 	public static void main(String...args)

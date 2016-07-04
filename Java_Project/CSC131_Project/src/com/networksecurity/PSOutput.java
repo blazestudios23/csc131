@@ -1,6 +1,7 @@
 package com.networksecurity;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 public class PSOutput {
 
@@ -24,7 +25,7 @@ public class PSOutput {
 		}
 	}
 
-	public static boolean printISP(){
+	public  boolean printISP(){
 		boolean flagValue=false;
 		try {
 			String command = "cmd /c ipconfig";
@@ -41,13 +42,21 @@ public class PSOutput {
 
 			String output=sb.toString();
 
+			InputStream inputStream = this.getClass().getClassLoader()
+					.getResourceAsStream("ApplicationResource.properties");
+
+			Properties properties = new Properties();
+			System.out.println("InputStream is: " + inputStream);
+			properties.load(inputStream);
+			String propValue = properties.getProperty("networkDnsName");
+			
 			String[] stringArray=output.split(":");
 			for(int i=0;i<stringArray.length;i++){
 				String mainArray[]= stringArray[i].split("\n");
 				for(int j=0;j<mainArray.length;j++){
 					//System.out.println(mainArray[j].replace("\n","").trim());  
 					if(!mainArray[j].isEmpty()){
-						if(mainArray[j].replace(" ","").trim().equals("hsd1.ca.comcast.net")){
+						if(mainArray[j].replace(" ","").trim().equals(propValue)){
 							flagValue= true;
 							break;
 						}
