@@ -18,7 +18,7 @@
         </div>
 
         <html:form action="/Email"  styleClass="form-signin" >
-          <h2 class="form-signin-heading">Please Confirm Attendance</h2>
+          <h2 class="form-signin-heading">Provide following details</h2>
           <label for="Username" class="sr-only">Student ID</label>
              <html:text name="EmailForm" property="stdid" value="Student ID" styleClass="form-control" />
              <label for="Username" class="sr-only">Email Id</label>

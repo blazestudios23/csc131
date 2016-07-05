@@ -14,7 +14,7 @@
     <body>
       <div class = "container">
         <div style="color:red">
-            <h2>Invalid user name  <bean:write name="LoginForm" property="userName"></bean:write></h2>
+            <h2>Invalid user name  <bean:write name="LoginForm" property="userName"></bean:write> or Invalid Password</h2>
         </div>
       </div>
     </body>
