@@ -147,13 +147,13 @@ public class SheetsQuickstart {
 			System.out.println("InputStream is: " + inputStream);
 			properties.load(inputStream);
 			String propValue = properties.getProperty("spreadsheetId");
-			
+			Integer id = Integer.parseInt(properties.getProperty("sheetId"));
 			String spreadsheetId = propValue;
 			List<Request> requests = new ArrayList<>();
 			requests.add(new Request()
 					.setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
 							.setProperties(new SheetProperties()
-									.setSheetId(1804025843)
+									.setSheetId(id)
 									.setTitle("Student Attendance"))
 							.setFields("title")));
 			SheetsQuickstart_g spreadsheet=new SheetsQuickstart_g();
@@ -223,7 +223,7 @@ public class SheetsQuickstart {
 				requests.add(new Request()
 						.setUpdateCells(new UpdateCellsRequest()
 								.setStart(new GridCoordinate()
-										.setSheetId(1804025843)
+										.setSheetId(id)
 										.setRowIndex(0)
 										.setColumnIndex(currentPtr)) //change index
 								.setRows(Arrays.asList(
@@ -233,7 +233,7 @@ public class SheetsQuickstart {
 				requests.add(new Request()
 						.setUpdateCells(new UpdateCellsRequest()
 								.setStart(new GridCoordinate()
-										.setSheetId(1804025843)
+										.setSheetId(id)
 										.setRowIndex(hash.get(stdid).intValue())
 										.setColumnIndex(currentPtr))
 								.setRows(Arrays.asList(
@@ -273,12 +273,22 @@ public class SheetsQuickstart {
 		try{
 			System.out.println("I am in update email method");
 			Sheets service = getSheetsService();
-			String spreadsheetId = "1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0";
+			
+			InputStream inputStream = this.getClass().getClassLoader()
+					.getResourceAsStream("ApplicationResource.properties");
+
+			Properties properties = new Properties();
+			System.out.println("InputStream is: " + inputStream);
+			properties.load(inputStream);
+			String propValue = properties.getProperty("spreadsheetId");
+			Integer id = Integer.parseInt(properties.getProperty("sheetId"));
+			
+			String spreadsheetId = propValue;
 			List<Request> requests = new ArrayList<>();
 			requests.add(new Request()
 					.setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
 							.setProperties(new SheetProperties()
-									.setSheetId(1804025843)
+									.setSheetId(id)
 									.setTitle("Student Attendance"))
 							.setFields("title")));
 			SheetsQuickstart_g spreadsheet=new SheetsQuickstart_g();
@@ -311,7 +321,7 @@ public class SheetsQuickstart {
 				requests.add(new Request()
 						.setUpdateCells(new UpdateCellsRequest()
 								.setStart(new GridCoordinate()
-										.setSheetId(1804025843)
+										.setSheetId(id)
 										.setRowIndex(hash.get(stdid).intValue())
 										.setColumnIndex(6))
 								.setRows(Arrays.asList(
