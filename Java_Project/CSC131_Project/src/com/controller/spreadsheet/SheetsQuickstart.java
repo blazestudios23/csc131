@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 import com.email.EmailData;
 
@@ -139,7 +140,15 @@ public class SheetsQuickstart {
 
 
 			Sheets service = getSheetsService();
-			String spreadsheetId = "1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0";
+			InputStream inputStream = this.getClass().getClassLoader()
+					.getResourceAsStream("ApplicationResource.properties");
+
+			Properties properties = new Properties();
+			System.out.println("InputStream is: " + inputStream);
+			properties.load(inputStream);
+			String propValue = properties.getProperty("spreadsheetId");
+			
+			String spreadsheetId = propValue;
 			List<Request> requests = new ArrayList<>();
 			requests.add(new Request()
 					.setUpdateSheetProperties(new UpdateSheetPropertiesRequest()
@@ -155,8 +164,9 @@ public class SheetsQuickstart {
 			BufferedWriter out = null;
 			System.out.println("Before try block");
 			try {
-				String pathAppend="F:\\CSU-Sacramento\\Bhushan\\CSC131\\Github_clone\\Andrew_Work\\csc131\\Java_Project\\CSC131_Project\\src\\com\\controller\\spreadsheet\\"+"counter.txt";
-				//String pathAppend="C:\\"+"counter.txt";
+				//String pathAppend="F:\\CSU-Sacramento\\Bhushan\\CSC131\\Github_clone\\Andrew_Work\\csc131\\Java_Project\\CSC131_Project\\src\\com\\controller\\spreadsheet\\"+"counter.txt";
+				String path = properties.getProperty("path");
+				String pathAppend=path;
 				System.out.println("Path is : "+pathAppend);
 				in =  new BufferedReader(new FileReader(pathAppend));
 				//

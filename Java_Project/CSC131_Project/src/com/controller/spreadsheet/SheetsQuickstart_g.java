@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 public class SheetsQuickstart_g {
     /** Application name. */
@@ -135,7 +136,14 @@ public class SheetsQuickstart_g {
         // Prints the names and majors of students in a sample spreadsheet:
         // https://docs.google.com/spreadsheets/d/1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0/edit
         System.out.println("I am in spreadsheet class");
-        String spreadsheetId = "1x5zVGM_r6uwY3UUa9HFo2Ew2PJxft9r4DTe0hCt1DP0";
+        InputStream inputStream = this.getClass().getClassLoader()
+				.getResourceAsStream("ApplicationResource.properties");
+
+		Properties properties = new Properties();
+		System.out.println("InputStream is: " + inputStream);
+		properties.load(inputStream);
+		String propValue = properties.getProperty("spreadsheetId");
+        String spreadsheetId = propValue;
         String range = "Student Attendance!A1:Z";
         ValueRange response = service.spreadsheets().values()
             .get(spreadsheetId, range)
