@@ -38,12 +38,13 @@ final class MailClient
 			System.out.println("InputStream is: " + inputStream);
 			properties.load(inputStream);
 			String propValue = properties.getProperty("pass");
+			String fromEmail = properties.getProperty("emailfrom");
 
-			String from = "snebhushan@gmail.com";
+			String from = fromEmail;
 			String to = toEmailId;
 			String subject = subjectpara + date;
 			String message = messagepara+ date;
-			String login = "snebhushan@gmail.com";
+			String login = fromEmail;
 			String password = propValue;
 
 			Properties props = new Properties();

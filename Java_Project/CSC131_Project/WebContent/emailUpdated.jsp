@@ -13,7 +13,7 @@
     <body>
       <div class = "container">
         <div style="color:red">
-            <h2>Email Id not updated for student id:<bean:write name="EmailForm" property="stdid"></bean:write></h2>
+            <h2>Email Id  updated for student id:<bean:write name="EmailForm" property="stdid"></bean:write></h2>
         </div>
       </div>
     </body>
